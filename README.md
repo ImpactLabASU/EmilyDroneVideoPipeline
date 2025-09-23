@@ -71,7 +71,7 @@ EMILY_RUN_ORCHESTRATOR=0 MPLBACKEND=TkAgg python3 run.py --epochs 1 --size 32 --
 Github Created by: Farhat Shaikh
 
 ## Citation
-If you use this repository, please cite the EMILY paper:
+If you use this repository, please cite the following two papers:
 
 ```bibtex
 @InProceedings{pmlr-v255-banerjee24a,
@@ -89,6 +89,18 @@ If you use this repository, please cite the EMILY paper:
   url = {https://proceedings.mlr.press/v255/banerjee24a.html},
   abstract = {Sparse model recovery requires us to extract model coefficients of ordinary differential equations (ODE) with few nonlinear terms from data. This problem has been effectively solved in recent literature for the case when all state variables of the ODE are measured. In practical deployments, measurements of all the state variables of the underlying ODE model of a process are not available, resulting in implicit (unmeasured) dynamics. In this paper, we propose EMILY, that can extract the underlying ODE of a dynamical process even if much of the dynamics is implicit. We show the utility of EMILY on four baseline examples and compare with the state-of-the-art techniques such as SINDY-MPC. Results show that unlike SINDY-MPC, EMILY can recover model coefficients accurately under implicit dynamics.}
 }
+```
+
+```bibtex
+@incollection{banerjee2024recovering,
+  title={Recovering Implicit Physics Model Under Real-World Constraints},
+  author={Banerjee, Ayan and Gupta, Sandeep KS},
+  booktitle={ECAI 2024},
+  pages={737--744},
+  year={2024},
+  publisher={IOS Press}
+}
+
 ```
 
 ## License
