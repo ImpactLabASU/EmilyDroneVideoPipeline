@@ -54,6 +54,9 @@ EMILY_RUN_ORCHESTRATOR=0 MPLBACKEND=TkAgg python3 run.py --epochs 1 --size 32 --
 - `data/uMotor1..4.txt`, `minMotor.txt`, `maxMotor.txt`
 - `annotated.mp4`, `annotated_audio.mp4`
 - `Output/drone_animation.gif` (final simulation)
+- `outputV2GPUV3_torch_ltc.csv` final physics model coefficients
+
+
 
 ## Env variables
 - `EMILY_RUN_ORCHESTRATOR=1` to run the full extract→audio→data pipeline
