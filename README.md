@@ -6,6 +6,15 @@ End-to-end pipeline to:
 - Train a physics-informed model (LTC) briefly
 - Run an automated 3D (Z-up) simulation and save a GIF
 
+## Drone Video Requirements
+
+- Has to be a side view of the drone with fixed camera
+- Drone should be on a flat surface initially
+- Drone should be in altitude hold mode
+- Video should have clear audio
+- Video should start from the drone lift off and go to altitude hold position and hold it for 2 - 3 s.
+- Video length should be > 5 s at 33 fpm
+
 ## Requirements
 - Python 3.10–3.12
 - ffmpeg (for audio via moviepy)
