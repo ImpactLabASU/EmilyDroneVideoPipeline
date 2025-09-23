@@ -58,5 +58,29 @@ EMILY_RUN_ORCHESTRATOR=0 MPLBACKEND=TkAgg python3 run.py --epochs 1 --size 32 --
 - Live window doesn’t show: switch backend (`TkAgg` ↔ `MacOSX`) or run headless (`Agg`)
 - Data not found: make sure the end-to-end command ran before the simulation-only command
 
+## Credits
+Github Created by: Farhat Shaikh
+
+## Citation
+If you use this repository, please cite the EMILY paper:
+
+```bibtex
+@InProceedings{pmlr-v255-banerjee24a,
+  title = {EMILY: Extracting sparse Model from ImpLicit dYnamics},
+  author = {Banerjee, Ayan and Gupta, Sandeep},
+  booktitle = {Proceedings of the 1st ECAI Workshop on "Machine Learning Meets Differential Equations: From Theory to Applications"},
+  pages = {1--11},
+  year = {2024},
+  editor = {Coelho, Cec{\i}lia and Zimmering, Bernd and Costa, M. Fernanda P. and Ferr{\'a}s, Lu{\'\i}s L. and Niggemann, Oliver},
+  volume = {255},
+  series = {Proceedings of Machine Learning Research},
+  month = {20 Oct},
+  publisher = {PMLR},
+  pdf = {https://raw.githubusercontent.com/mlresearch/v255/main/assets/banerjee24a/banerjee24a.pdf},
+  url = {https://proceedings.mlr.press/v255/banerjee24a.html},
+  abstract = {Sparse model recovery requires us to extract model coefficients of ordinary differential equations (ODE) with few nonlinear terms from data. This problem has been effectively solved in recent literature for the case when all state variables of the ODE are measured. In practical deployments, measurements of all the state variables of the underlying ODE model of a process are not available, resulting in implicit (unmeasured) dynamics. In this paper, we propose EMILY, that can extract the underlying ODE of a dynamical process even if much of the dynamics is implicit. We show the utility of EMILY on four baseline examples and compare with the state-of-the-art techniques such as SINDY-MPC. Results show that unlike SINDY-MPC, EMILY can recover model coefficients accurately under implicit dynamics.}
+}
+```
+
 ## License
 Property of IMPACT Lab ASU. For research use.
