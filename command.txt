@@ -4,3 +4,18 @@ Run this from the repo root (no machine-specific paths):
 python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt && [ -f yolov8n.pt ] || curl -L -o yolov8n.pt https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt && EMILY_AUTOMATE_MODE=1 EMILY_RUN_ORCHESTRATOR=1 python3 run.py --video DroneVideo.mp4 --weights yolov8n.pt && EMILY_RUN_ORCHESTRATOR=0 MPLBACKEND=Agg python3 run.py --epochs 1 --size 32 --model ltc --log 1
 ```
 
+- End-to-end (extract video+audio → data → quick train → save simulation GIF, headless):
+```bash
+EMILY_AUTOMATE_MODE=1 EMILY_RUN_ORCHESTRATOR=1 python3 run.py --video DroneVideo.mp4 --weights yolov8n.pt
+```
+
+- Live 3D simulation (after data is generated):
+```bash
+EMILY_RUN_ORCHESTRATOR=0 MPLBACKEND=TkAgg python3 run.py --epochs 1 --size 32 --model ltc --log 1
+```
+
+Execute this command:
+```bash
+EMILY_AUTOMATE_MODE=1 EMILY_RUN_ORCHESTRATOR=1 python3 run.py --video DroneVideo.mp4 --weights yolov8n.pt
+EMILY_RUN_ORCHESTRATOR=0 MPLBACKEND=TkAgg python3 run.py --epochs 1 --size 32 --model ltc --log 1
+```

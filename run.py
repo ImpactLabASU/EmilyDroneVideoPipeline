@@ -629,7 +629,7 @@ from matplotlib.animation import FuncAnimation
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
-# experiment ID for data organization
+# Patient/experiment ID for data organization
 numID = 1
 
 # ----------------------------
@@ -1174,7 +1174,7 @@ class Custom_CE_Loss(nn.Module):
 # ----------------------------
 class HarData:
     def __init__(self, seq_len=16):
-        print(f"Parsing for File {numID}")
+        print(f"Parsing for Patient File {numID}")
         # Prefer new extracted data in Dronepipeline/data; fall back to UCI HAR layout
         dp_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
         use_dp = os.path.exists(os.path.join(dp_dir, "xData.txt"))
@@ -1240,47 +1240,47 @@ class HarData:
         print(f"Validation split: {valid_size}, training split: {train_x_x.shape[1] - valid_size}")
 
         # Split data - matches TF exactly
-        self.valid_x_x = torch.tensor(train_x_x[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_x_y = torch.tensor(train_x_y[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_x_z = torch.tensor(train_x_z[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_y_x = torch.tensor(train_y_x[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_y_y = torch.tensor(train_y_y[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_y_z = torch.tensor(train_y_z[:, :valid_size], dtype=torch.float32).to(device)
+        self.valid_x_x = torch.tensor(train_x_x[:, :valid_size], dtype=torch.float32)
+        self.valid_x_y = torch.tensor(train_x_y[:, :valid_size], dtype=torch.float32)
+        self.valid_x_z = torch.tensor(train_x_z[:, :valid_size], dtype=torch.float32)
+        self.valid_y_x = torch.tensor(train_y_x[:, :valid_size], dtype=torch.float32)
+        self.valid_y_y = torch.tensor(train_y_y[:, :valid_size], dtype=torch.float32)
+        self.valid_y_z = torch.tensor(train_y_z[:, :valid_size], dtype=torch.float32)
 
-        self.valid_uMotor1 = torch.tensor(train_uMotor1[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_uMotor2 = torch.tensor(train_uMotor2[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_uMotor3 = torch.tensor(train_uMotor3[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_uMotor4 = torch.tensor(train_uMotor4[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_maxMotor = torch.tensor(train_maxMotor[:, :valid_size], dtype=torch.float32).to(device)
-        self.valid_minMotor = torch.tensor(train_minMotor[:, :valid_size], dtype=torch.float32).to(device)
+        self.valid_uMotor1 = torch.tensor(train_uMotor1[:, :valid_size], dtype=torch.float32)
+        self.valid_uMotor2 = torch.tensor(train_uMotor2[:, :valid_size], dtype=torch.float32)
+        self.valid_uMotor3 = torch.tensor(train_uMotor3[:, :valid_size], dtype=torch.float32)
+        self.valid_uMotor4 = torch.tensor(train_uMotor4[:, :valid_size], dtype=torch.float32)
+        self.valid_maxMotor = torch.tensor(train_maxMotor[:, :valid_size], dtype=torch.float32)
+        self.valid_minMotor = torch.tensor(train_minMotor[:, :valid_size], dtype=torch.float32)
 
-        self.train_x_x = torch.tensor(train_x_x[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_x_y = torch.tensor(train_x_y[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_x_z = torch.tensor(train_x_z[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_y_x = torch.tensor(train_y_x[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_y_y = torch.tensor(train_y_y[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_y_z = torch.tensor(train_y_z[:, valid_size:], dtype=torch.float32).to(device)
+        self.train_x_x = torch.tensor(train_x_x[:, valid_size:], dtype=torch.float32)
+        self.train_x_y = torch.tensor(train_x_y[:, valid_size:], dtype=torch.float32)
+        self.train_x_z = torch.tensor(train_x_z[:, valid_size:], dtype=torch.float32)
+        self.train_y_x = torch.tensor(train_y_x[:, valid_size:], dtype=torch.float32)
+        self.train_y_y = torch.tensor(train_y_y[:, valid_size:], dtype=torch.float32)
+        self.train_y_z = torch.tensor(train_y_z[:, valid_size:], dtype=torch.float32)
 
-        self.train_uMotor1 = torch.tensor(train_uMotor1[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_uMotor2 = torch.tensor(train_uMotor2[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_uMotor3 = torch.tensor(train_uMotor3[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_uMotor4 = torch.tensor(train_uMotor4[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_maxMotor = torch.tensor(train_maxMotor[:, valid_size:], dtype=torch.float32).to(device)
-        self.train_minMotor = torch.tensor(train_minMotor[:, valid_size:], dtype=torch.float32).to(device)
+        self.train_uMotor1 = torch.tensor(train_uMotor1[:, valid_size:], dtype=torch.float32)
+        self.train_uMotor2 = torch.tensor(train_uMotor2[:, valid_size:], dtype=torch.float32)
+        self.train_uMotor3 = torch.tensor(train_uMotor3[:, valid_size:], dtype=torch.float32)
+        self.train_uMotor4 = torch.tensor(train_uMotor4[:, valid_size:], dtype=torch.float32)
+        self.train_maxMotor = torch.tensor(train_maxMotor[:, valid_size:], dtype=torch.float32)
+        self.train_minMotor = torch.tensor(train_minMotor[:, valid_size:], dtype=torch.float32)
 
-        self.test_x_x = torch.tensor(test_x_x, dtype=torch.float32).to(device)
-        self.test_x_y = torch.tensor(test_x_y, dtype=torch.float32).to(device)
-        self.test_x_z = torch.tensor(test_x_z, dtype=torch.float32).to(device)
-        self.test_y_x = torch.tensor(test_y_x, dtype=torch.float32).to(device)
-        self.test_y_y = torch.tensor(test_y_y, dtype=torch.float32).to(device)
-        self.test_y_z = torch.tensor(test_y_z, dtype=torch.float32).to(device)
+        self.test_x_x = torch.tensor(test_x_x, dtype=torch.float32)
+        self.test_x_y = torch.tensor(test_x_y, dtype=torch.float32)
+        self.test_x_z = torch.tensor(test_x_z, dtype=torch.float32)
+        self.test_y_x = torch.tensor(test_y_x, dtype=torch.float32)
+        self.test_y_y = torch.tensor(test_y_y, dtype=torch.float32)
+        self.test_y_z = torch.tensor(test_y_z, dtype=torch.float32)
 
-        self.test_uMotor1 = torch.tensor(test_uMotor1, dtype=torch.float32).to(device)
-        self.test_uMotor2 = torch.tensor(test_uMotor2, dtype=torch.float32).to(device)
-        self.test_uMotor3 = torch.tensor(test_uMotor3, dtype=torch.float32).to(device)
-        self.test_uMotor4 = torch.tensor(test_uMotor4, dtype=torch.float32).to(device)
-        self.test_maxMotor = torch.tensor(test_maxMotor, dtype=torch.float32).to(device)
-        self.test_minMotor = torch.tensor(test_minMotor, dtype=torch.float32).to(device)
+        self.test_uMotor1 = torch.tensor(test_uMotor1, dtype=torch.float32)
+        self.test_uMotor2 = torch.tensor(test_uMotor2, dtype=torch.float32)
+        self.test_uMotor3 = torch.tensor(test_uMotor3, dtype=torch.float32)
+        self.test_uMotor4 = torch.tensor(test_uMotor4, dtype=torch.float32)
+        self.test_maxMotor = torch.tensor(test_maxMotor, dtype=torch.float32)
+        self.test_minMotor = torch.tensor(test_minMotor, dtype=torch.float32)
 
         print(f"Total number of test sequences: {self.test_x_x.shape[1]}")
 
@@ -1822,14 +1822,13 @@ if __name__ == "__main__" and os.getenv("EMILY_AUTOMATE_MODE") != "1":
 #RUN AS: python3 emily_drone_torch_ltc.py --epochs 5 --size 32 --model ltc --log 1 --id 1  # batch size 32
 
 # EMILY Drone Pipeline
-import pdb
+
 # Orchestrator: runs extract -> audio -> emily using new data in this folder
 if __name__ == "__main__" and os.getenv("EMILY_RUN_ORCHESTRATOR", "0") == "1":
     try:
         # why: allow one-command automation; what: run steps with minimal args
         here = os.path.dirname(os.path.abspath(__file__))
-        root = here#os.path.dirname(os.path.dirname(here))  # project root
-        #pdb.set_trace()
+        root = os.path.dirname(os.path.dirname(here))  # project root
         dp = os.path.join(root, "Dronepipeline")
         weights = os.path.join(root, "yolov8n.pt")
         data_dir = os.path.join(here, "data")
