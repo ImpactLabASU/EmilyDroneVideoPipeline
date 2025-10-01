@@ -268,17 +268,8 @@ If you use this work in your research, please cite:
 
 ## 📄 License
 
-This project is licensed under the Research License - see the [LICENSE](LICENSE) file for details.
-
 **Property of IMPACT Lab ASU. For research use only.**
 
 ---
-
-## 🆘 Support
-
-For questions, issues, or contributions:
-- Open an issue on GitHub
-- Contact: [Your Contact Information]
-- Lab Website: [IMPACT Lab ASU](https://impact.asu.edu/)
 
 **Happy Flying! 🚁✨**
